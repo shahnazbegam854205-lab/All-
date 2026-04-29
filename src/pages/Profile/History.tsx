@@ -90,38 +90,38 @@ export default function History() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.05 }}
               key={idx} 
-              className="bg-[#111] p-6 rounded-[2.5rem] border border-white/5 flex flex-col gap-4 shadow-xl hover:border-cyan-500/20 transition-all group"
+              className="bg-[#111] p-4 sm:p-6 rounded-2xl sm:rounded-[2.5rem] border border-white/5 flex flex-col gap-3 sm:gap-4 shadow-xl hover:border-cyan-500/20 transition-all group"
             >
               <div className="flex items-center justify-between">
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-3 sm:gap-4 overflow-hidden">
                   <div className={cn(
-                    "w-12 h-12 rounded-2xl flex items-center justify-center font-black text-xs border shadow-inner",
+                    "w-10 h-10 sm:w-12 sm:h-12 shrink-0 rounded-xl sm:rounded-2xl flex items-center justify-center font-black text-[10px] sm:text-xs border shadow-inner",
                     log.method === 'GET' ? "bg-blue-500/5 border-blue-500/20 text-blue-400" :
                     log.method === 'POST' ? "bg-cyan-500/5 border-cyan-500/20 text-cyan-400" :
                     "bg-yellow-500/5 border-yellow-500/20 text-yellow-500"
                   )}>
                     {log.method}
                   </div>
-                  <div>
-                    <h4 className="font-black text-white text-sm tracking-tight truncate max-w-[150px] md:max-w-md">{log.url}</h4>
-                    <p className="text-[10px] font-mono font-bold text-gray-700 mt-0.5 tracking-widest">{log.ip}</p>
+                  <div className="min-w-0">
+                    <h4 className="font-black text-white text-xs sm:text-sm tracking-tight truncate">{log.url}</h4>
+                    <p className="text-[9px] sm:text-[10px] font-mono font-bold text-gray-700 mt-0.5 tracking-widest truncate">{log.ip}</p>
                   </div>
                 </div>
                 <div className={cn(
-                  "px-4 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest flex items-center gap-2",
+                  "px-2 sm:px-4 py-1.5 sm:py-2 shrink-0 rounded-lg sm:rounded-xl text-[9px] sm:text-[10px] font-black uppercase tracking-widest flex items-center gap-2",
                   log.statusCode < 400 ? "bg-emerald-500/10 text-emerald-400 border border-emerald-500/20" : "bg-red-500/10 text-red-500 border border-red-500/20"
                 )}>
                   {log.statusCode}
                 </div>
               </div>
               
-              <div className="flex items-center justify-between pt-4 border-t border-white/[0.02]">
+              <div className="flex items-center justify-between pt-3 sm:pt-4 border-t border-white/[0.02]">
                 <div className="flex items-center gap-4">
-                  <div className="flex items-center gap-2 text-[10px] font-black text-gray-600 uppercase tracking-widest">
-                    <Clock size={12} className="text-gray-800" /> {log.duration}ms
+                  <div className="flex items-center gap-2 text-[9px] sm:text-[10px] font-black text-gray-600 uppercase tracking-widest">
+                    <Clock size={10} className="text-gray-800" /> {log.duration}ms
                   </div>
                 </div>
-                <div className="text-[10px] font-mono font-black text-gray-500 uppercase tracking-widest">
+                <div className="text-[9px] sm:text-[10px] font-mono font-black text-gray-500 uppercase tracking-widest">
                   {format(log.timestamp || Date.now(), 'MMM d, HH:mm:ss')}
                 </div>
               </div>

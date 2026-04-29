@@ -69,7 +69,7 @@ export const TopBar = () => {
               animate={{ x: 0 }}
               exit={{ x: '-100%' }}
               transition={{ type: 'spring', damping: 30, stiffness: 300, mass: 0.8 }}
-              className="fixed top-0 left-0 bottom-0 w-[85%] max-w-[320px] bg-[#050505] border-r border-white/10 z-[70] p-10 flex flex-col shadow-[20px_0_100px_rgba(0,255,255,0.1)]"
+              className="fixed top-0 left-0 bottom-0 w-[85%] max-w-[320px] bg-[#050505] border-r border-white/10 z-[70] p-10 flex flex-col shadow-[20px_0_100px_rgba(0,255,255,0.1)] overflow-y-auto custom-scrollbar"
             >
               <div className="flex items-start justify-between mb-12">
                 <div className="flex flex-col">

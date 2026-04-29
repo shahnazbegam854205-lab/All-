@@ -87,20 +87,20 @@ export default function Dashboard() {
 
   return (
     <div className="space-y-8 pb-10">
-      <section className="relative overflow-hidden p-8 rounded-[2rem] glow-card bg-gradient-to-br from-[#111] to-[#0a0a0a]">
+      <section className="relative overflow-hidden p-6 sm:p-10 rounded-[2rem] glow-card bg-gradient-to-br from-[#111] to-[#0a0a0a]">
         <div className="relative z-10">
           <motion.h2 
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="text-3xl font-bold mb-2 tracking-tight uppercase"
+            className="text-2xl sm:text-4xl font-bold mb-3 tracking-tight uppercase"
           >
             Happy Own<span className="text-cyan-400"> Service</span> <span className="animate-wave inline-block">👋</span>
           </motion.h2>
-          <p className="text-gray-400 mb-8 max-w-md text-sm font-bold uppercase tracking-widest leading-relaxed">Welcome back, {userName}. How can we help you today?</p>
+          <p className="text-gray-400 mb-8 max-w-md text-[10px] sm:text-xs font-bold uppercase tracking-widest leading-loose opacity-70">Welcome back, {userName}. Control your messaging infrastructure from one place.</p>
           
           <div className="flex flex-wrap gap-4">
-            <Link to="/tester" className="glow-button flex items-center gap-3 py-3 px-6 text-sm">
-              Send Message <ArrowUpRight size={18} />
+            <Link to="/tester" className="glow-button flex items-center gap-2 py-3.5 px-8 text-[11px]">
+              Send Message <ArrowUpRight size={16} />
             </Link>
           </div>
         </div>
@@ -226,29 +226,25 @@ export default function Dashboard() {
           </h3>
         </div>
         
-        <div className="space-y-4 pb-10">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 pb-10">
           {[
-            { label: 'Bulk Messages', desc: 'Send mass messages easily', icon: TrendingUp, path: '/bulk', color: 'text-cyan-400' },
-            { label: 'Webhooks', desc: 'Receive real-time updates', icon: Radio, path: '/webhooks', color: 'text-emerald-400' },
-            { label: 'Get Help', desc: 'Contact our specialists', icon: MessageCircle, path: '/support', color: 'text-yellow-400' },
-            { label: 'Documentation', desc: 'API usage and examples', icon: Globe, path: '/docs', color: 'text-blue-400' },
+            { label: 'Bulk', desc: 'Campaign', icon: TrendingUp, path: '/bulk', color: 'text-cyan-400' },
+            { label: 'Webhooks', desc: 'Real-time', icon: Radio, path: '/webhooks', color: 'text-emerald-400' },
+            { label: 'Help', desc: 'Support', icon: MessageCircle, path: '/support', color: 'text-yellow-400' },
+            { label: 'Docs', desc: 'API Guide', icon: Globe, path: '/docs', color: 'text-blue-400' },
           ].map((item) => (
             <Link 
               key={item.label}
               to={item.path}
-              className="bg-[#111] p-5 rounded-[2rem] border border-white/5 flex items-center justify-between group hover:border-cyan-500/30 transition-all shadow-xl"
+              className="bg-[#111] p-4 sm:p-5 rounded-3xl border border-white/5 flex flex-col items-center text-center gap-3 group hover:border-cyan-500/30 transition-all shadow-xl"
             >
-              <div className="flex items-center gap-5">
-                <div className={`w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center ${item.color} shadow-inner`}>
-                  <item.icon size={28} />
-                </div>
-                <div>
-                  <h4 className="font-bold text-white text-lg tracking-tight uppercase">{item.label}</h4>
-                  <p className="text-xs text-gray-500 font-bold tracking-widest mt-0.5">{item.desc}</p>
-                </div>
+              <div className={`w-10 h-10 sm:w-12 sm:h-12 bg-white/5 rounded-2xl flex items-center justify-center ${item.color} shadow-inner group-hover:scale-110 transition-transform`}>
+                <item.icon size={20} className="sm:hidden" />
+                <item.icon size={24} className="hidden sm:block" />
               </div>
-              <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-cyan-500/20 group-hover:text-cyan-400 transition-all">
-                <ChevronRight size={20} />
+              <div>
+                <h4 className="font-bold text-white text-[11px] sm:text-xs tracking-tight uppercase">{item.label}</h4>
+                <p className="text-[8px] text-gray-600 font-bold tracking-widest mt-0.5">{item.desc}</p>
               </div>
             </Link>
           ))}
