@@ -27,16 +27,16 @@ export default function ApiTester() {
 
   const testEndpoints = [
     { method: 'POST', path: '/api/send', label: 'Send Text', default: { number: '919876543210', message: 'Hello from Tester!' } },
-    { method: 'POST', path: '/api/send/image-url', label: 'Image (URL)', default: { number: '919876543210', imageUrl: 'https://example.com/image.jpg', caption: 'Image Test' } },
+    { method: 'POST', path: '/api/send/image', label: 'Image (URL)', default: { number: '919876543210', imageUrl: 'https://example.com/image.jpg', caption: 'Image Test' } },
     { method: 'POST', path: '/api/send/image', label: 'Image (Upload)', default: { number: '919876543210', caption: 'Upload Test' } },
-    { method: 'POST', path: '/api/send/bulk-image-url', label: 'Bulk Image (URL)', default: { numbers: ["919876543210", "919876543211"], imageUrl: 'https://example.com/image.jpg', caption: 'Bulk Test' } },
+    { method: 'POST', path: '/api/send/bulk-image', label: 'Bulk Image (URL)', default: { numbers: ["919876543210", "919876543211"], imageUrl: 'https://example.com/image.jpg', caption: 'Bulk Test' } },
     { method: 'POST', path: '/api/send/bulk-image', label: 'Bulk Image (Upload)', default: { numbers: ["919876543210", "919876543211"], caption: 'Bulk Upload Test' } },
-    { method: 'POST', path: '/api/send/document-url', label: 'Doc (URL)', default: { number: '919876543210', documentUrl: 'https://example.com/file.pdf', filename: 'test.pdf' } },
+    { method: 'POST', path: '/api/send/document', label: 'Doc (URL)', default: { number: '919876543210', documentUrl: 'https://example.com/file.pdf', filename: 'test.pdf' } },
     { method: 'POST', path: '/api/send/document', label: 'Doc (Upload)', default: { number: '919876543210', filename: 'test.pdf' } },
-    { method: 'POST', path: '/api/send/bulk-document-url', label: 'Bulk Doc (URL)', default: { numbers: ["919876543210", "919876543211"], documentUrl: 'https://example.com/file.pdf', filename: 'test.pdf' } },
+    { method: 'POST', path: '/api/send/bulk-document', label: 'Bulk Doc (URL)', default: { numbers: ["919876543210", "919876543211"], documentUrl: 'https://example.com/file.pdf', filename: 'test.pdf' } },
     { method: 'POST', path: '/api/send/bulk-document', label: 'Bulk Doc (Upload)', default: { numbers: ["919876543210", "919876543211"], filename: 'test.pdf' } },
     { method: 'POST', path: '/api/send/bulk', label: 'Bulk Text', default: { numbers: ["919876543210", "919876543211"], message: 'Bulk Text Test' } },
-    { method: 'POST', path: '/api/send/audio', label: 'Send Audio', default: { number: '919876543210', audioUrl: 'https://example.com/audio.mp3' } },
+    { method: 'POST', path: '/api/send/audio', label: 'Send Audio (URL)', default: { number: '919876543210', audioUrl: 'https://example.com/audio.mp3' } },
     { method: 'GET', path: '/api/devices', label: 'List Devices', default: {} }
   ];
 
@@ -131,13 +131,13 @@ export default function ApiTester() {
                       testEndpoints[activeEndpoint].path.includes('audio');
 
   return (
-    <div className="space-y-8 pb-20">
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+    <div className="space-y-6 sm:space-y-8 pb-32">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 px-2">
         <div>
-          <h2 className="text-3xl font-black text-white tracking-widest uppercase">API<span className="text-cyan-500">TESTER</span></h2>
+          <h2 className="text-2xl sm:text-3xl font-black text-white tracking-widest uppercase">API<span className="text-cyan-500">TESTER</span></h2>
           <p className="text-gray-500 text-[10px] font-bold uppercase tracking-widest mt-1">Direct endpoint interrogation system.</p>
         </div>
-        <div className="flex gap-2 p-1.5 bg-[#111] border border-white/5 rounded-2xl overflow-x-auto scroller-hide">
+        <div className="flex gap-2 p-1.5 bg-[#111] border border-white/5 rounded-2xl overflow-x-auto custom-scrollbar-hidden">
           {testEndpoints.map((ep, idx) => (
             <button
               key={ep.label}
@@ -153,10 +153,10 @@ export default function ApiTester() {
         </div>
       </div>
 
-      <div className="grid lg:grid-cols-2 gap-8">
+      <div className="grid lg:grid-cols-2 gap-6 sm:gap-8">
         <div className="space-y-6">
-          <div className="bg-[#111] p-6 md:p-10 rounded-[3rem] border border-white/5 shadow-2xl space-y-8">
-            <div className="space-y-3 px-2">
+          <div className="bg-[#111] p-6 sm:p-10 rounded-[2.5rem] sm:rounded-[3rem] border border-white/5 shadow-2xl space-y-8">
+            <div className="space-y-3 sm:px-2">
               <label className="text-[10px] font-black uppercase text-gray-600 tracking-[0.2em]">active node</label>
               <div className="relative">
                 <Smartphone className="absolute left-5 top-1/2 -translate-y-1/2 text-cyan-500" size={18} />
@@ -175,7 +175,7 @@ export default function ApiTester() {
             </div>
 
             {isUploadable && (
-              <div className="space-y-3 px-2">
+              <div className="space-y-3 sm:px-2">
                 <div className="flex items-center justify-between">
                   <label className="text-[10px] font-black uppercase text-gray-600 tracking-[0.2em]">Upload Asset (Self Upload)</label>
                   {selectedFile && (
@@ -198,42 +198,32 @@ export default function ApiTester() {
                     htmlFor="file-upload"
                     className={cn(
                       "flex items-center justify-between w-full border rounded-2xl p-5 cursor-pointer transition-all font-bold text-xs ring-offset-black focus-within:ring-2 focus-within:ring-cyan-500",
-                      selectedFile ? "border-cyan-500 bg-cyan-500/5" : "border-white/10 bg-black hover:border-white/20"
+                      selectedFile ? "border-cyan-500 bg-cyan-500/5 text-cyan-400" : "border-white/10 bg-black hover:border-white/20 text-gray-400"
                     )}
                   >
-                    <span className={selectedFile ? "text-cyan-400" : "text-gray-400"}>
+                    <span className="truncate pr-4">
                       {selectedFile ? selectedFile.name : "Select local file for transmission..."}
                     </span>
-                    <Play size={14} className="text-cyan-500 rotate-90" />
+                    <Play size={14} className="text-cyan-500 rotate-90 shrink-0" />
                   </label>
                 </div>
               </div>
             )}
 
-            <div className="space-y-3 px-2">
-              <div className="flex justify-between items-center">
+            <div className="space-y-3 sm:px-2">
+              <div className="flex justify-between items-center px-1">
                 <label className="text-[10px] font-black uppercase text-gray-600 tracking-[0.2em]">Transmission Body</label>
                 <div className="flex items-center gap-3">
-                  <div className="group relative">
-                    <span className="cursor-help text-[8px] font-bold text-cyan-500/40 border border-cyan-500/20 px-1.5 py-0.5 rounded italic">Bulk Tip?</span>
-                    <div className="absolute bottom-full right-0 mb-2 w-64 p-4 bg-black border border-cyan-500/30 rounded-2xl text-[10px] text-gray-400 invisible group-hover:visible z-50 shadow-[0_0_50px_rgba(0,255,255,0.1)]">
-                      <p className="font-black text-cyan-500 uppercase mb-2">Broadcasting Protocol:</p>
-                      Use square brackets for multiple numbers:<br/>
-                      <code className="text-white bg-white/10 px-1 rounded block mt-1">"numbers": ["9198...", "9188...", "9177..."]</code>
-                      <br/>
-                      <span className="text-emerald-500 font-bold block mt-1">✔ Ensure payload is valid JSON</span>
-                    </div>
-                  </div>
                   <button 
                     onClick={() => {
                       try {
                         const obj = JSON.parse(payload);
                         setPayload(JSON.stringify(obj, null, 2));
                       } catch (e: any) {
-                        alert(`INVALID JSON: ${e.message}. Check for missing commas or quotes.`);
+                        alert(`JSON Error: ${e.message}`);
                       }
                     }}
-                    className="text-[9px] font-black uppercase text-cyan-500 hover:text-cyan-400 font-mono"
+                    className="hidden sm:block text-[9px] font-black uppercase text-cyan-500 hover:text-cyan-400 font-mono"
                   >
                     Auto-Format
                   </button>
@@ -242,9 +232,10 @@ export default function ApiTester() {
               </div>
               <div className="border border-white/5 rounded-3xl overflow-hidden bg-black shadow-inner">
                 <textarea 
-                  className="w-full bg-transparent p-8 h-64 outline-none font-mono text-[11px] leading-relaxed text-cyan-400 custom-scrollbar resize-none"
+                  className="w-full bg-transparent p-6 sm:p-8 h-48 sm:h-64 outline-none font-mono text-[10px] sm:text-[11px] leading-relaxed text-cyan-400 custom-scrollbar resize-none"
                   value={payload}
                   onChange={(e) => setPayload(e.target.value)}
+                  spellCheck={false}
                 />
               </div>
             </div>
@@ -252,7 +243,7 @@ export default function ApiTester() {
             <button 
               disabled={isLoading}
               onClick={handleTest}
-              className="glow-button w-full py-6 text-sm font-black uppercase tracking-[0.3em]"
+              className="glow-button w-full py-6 text-sm font-black uppercase tracking-[0.3em] disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isLoading ? <Loader2 className="animate-spin mx-auto text-black" /> : "Initiate Request"}
             </button>
@@ -261,7 +252,7 @@ export default function ApiTester() {
 
         <div className="flex flex-col space-y-4">
           <div className="flex items-center justify-between px-2">
-            <h3 className="text-sm font-bold text-gray-400 uppercase tracking-widest flex items-center gap-2">
+            <h3 className="text-xs font-bold text-gray-400 uppercase tracking-widest flex items-center gap-2">
               <Terminal size={14} className="text-cyan-500" />
               Response Output
             </h3>
@@ -270,23 +261,23 @@ export default function ApiTester() {
             </span>
           </div>
 
-          <div className="bg-[#0a0a0a] rounded-[2.5rem] border border-white/5 overflow-hidden flex flex-col h-[520px] shadow-inner">
-            <div className="flex-1 overflow-auto p-6 font-mono text-[11px] leading-relaxed custom-scrollbar text-cyan-400">
+          <div className="bg-[#0a0a0a] rounded-[2.5rem] border border-white/5 overflow-hidden flex flex-col h-[400px] sm:h-[520px] shadow-inner">
+            <div className="flex-1 overflow-auto p-6 font-mono text-[10px] sm:text-[11px] leading-relaxed custom-scrollbar text-cyan-400">
               {response ? (
-                <pre>
+                <pre className="whitespace-pre-wrap break-all">
                   {JSON.stringify(response, null, 2)}
                 </pre>
               ) : (
-                <div className="h-full flex flex-col items-center justify-center text-gray-800">
-                  <Database size={48} className="mb-4 opacity-10" />
+                <div className="h-full flex flex-col items-center justify-center text-gray-800 space-y-4">
+                  <Database size={48} className="opacity-10" />
                   <p className="font-bold tracking-widest uppercase text-xs">Waiting for Execution...</p>
                 </div>
               )}
             </div>
             {response && (
               <div className="p-4 bg-white/5 border-t border-white/5 flex items-center justify-between">
-                <span className="text-[10px] font-bold text-gray-500 uppercase">Status: 200 OK</span>
-                <button onClick={() => setResponse(null)} className="text-[10px] font-bold text-cyan-500 hover:text-cyan-400 uppercase">Clear</button>
+                <span className="text-[10px] font-bold text-gray-500 uppercase">Status Code: {response.error ? '400 ERR' : '200 OK'}</span>
+                <button onClick={() => setResponse(null)} className="text-[10px] font-bold text-cyan-500 hover:text-cyan-400 uppercase">Clear Window</button>
               </div>
             )}
           </div>

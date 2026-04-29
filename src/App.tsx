@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { TopBar } from './components/Navigation/TopBar';
 import { BottomNav } from './components/Navigation/BottomNav';
 import { useState, useEffect } from 'react';
@@ -16,6 +16,7 @@ import Devices from './pages/Devices/Devices';
 import BulkMessaging from './pages/Bulk/BulkMessaging';
 import History from './pages/Profile/History';
 import Webhooks from './pages/Webhooks/Webhooks';
+import Support from './pages/Support/Support';
 
 export default function App() {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(!!localStorage.getItem('apiKey'));
@@ -42,7 +43,7 @@ export default function App() {
   };
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div className="bg-[#030712] min-h-screen text-slate-100 bg-grid">
         <Routes>
           <Route path="/login" element={<Login onLogin={() => setIsAuthenticated(true)} />} />
@@ -56,11 +57,12 @@ export default function App() {
           <Route path="/devices" element={<ProtectedRoute><Devices /></ProtectedRoute>} />
           <Route path="/bulk" element={<ProtectedRoute><BulkMessaging /></ProtectedRoute>} />
           <Route path="/webhooks" element={<ProtectedRoute><Webhooks /></ProtectedRoute>} />
+          <Route path="/support" element={<ProtectedRoute><Support /></ProtectedRoute>} />
           <Route path="/history" element={<ProtectedRoute><History /></ProtectedRoute>} />
           
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }

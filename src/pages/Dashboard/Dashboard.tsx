@@ -15,7 +15,8 @@ import {
   Smartphone,
   Copy,
   Check,
-  Radio
+  Radio,
+  MessageCircle
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { cn } from '../../lib/utils';
@@ -229,6 +230,7 @@ export default function Dashboard() {
           {[
             { label: 'Bulk Campaign', desc: 'Secure mass transmission protocol', icon: TrendingUp, path: '/bulk', color: 'text-cyan-400' },
             { label: 'Webhook Setup', desc: 'Real-time data stream config', icon: Radio, path: '/webhooks', color: 'text-emerald-400' },
+            { label: 'Get Support', desc: 'Direct protocol specialist link', icon: MessageCircle, path: '/support', color: 'text-yellow-400' },
             { label: 'Developer Docs', desc: 'Encrypted API documentation', icon: Globe, path: '/docs', color: 'text-blue-400' },
           ].map((item) => (
             <Link 

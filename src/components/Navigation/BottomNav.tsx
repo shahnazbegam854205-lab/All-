@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import { LayoutDashboard, MessageSquare, Code2, User, Radio } from 'lucide-react';
+import { LayoutDashboard, MessageSquare, Code2, User, Radio, HelpCircle } from 'lucide-react';
 import { cn } from '../../lib/utils';
 
 export const BottomNav = () => {
@@ -7,7 +7,7 @@ export const BottomNav = () => {
     { icon: LayoutDashboard, label: 'Dash', path: '/' },
     { icon: MessageSquare, label: 'Chat', path: '/chat' },
     { icon: Radio, label: 'Hooks', path: '/webhooks' },
-    { icon: Code2, label: 'Docs', path: '/docs' },
+    { icon: HelpCircle, label: 'Help', path: '/support' },
     { icon: User, label: 'Me', path: '/profile' },
   ];
 

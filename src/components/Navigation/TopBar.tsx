@@ -16,6 +16,7 @@ export const TopBar = () => {
     { label: 'API Tester', path: '/tester' },
     { label: 'Device Manager', path: '/devices' },
     { label: 'Webhook Config', path: '/webhooks' },
+    { label: 'Get Support', path: '/support' },
     { label: 'User History', path: '/history' },
     { label: 'Profile Settings', path: '/profile' },
   ];
