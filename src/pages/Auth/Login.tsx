@@ -48,24 +48,24 @@ export default function Login({ onLogin }: LoginProps) {
           <h1 className="text-5xl font-black text-white tracking-tighter mb-3 uppercase">
             Happy Own<span className="text-cyan-500"> Service</span>
           </h1>
-          <p className="text-gray-500 font-bold uppercase tracking-[0.2em] text-[10px]">Production Environment Access</p>
+          <p className="text-gray-500 font-bold uppercase tracking-[0.2em] text-[10px]">Sign in to your account</p>
         </div>
 
-        <form onSubmit={handleLogin} className="space-y-6 bg-[#111] p-10 rounded-[3rem] border border-white/5 shadow-2xl">
+        <form onSubmit={handleLogin} className="space-y-6 bg-[#111] p-8 rounded-[2rem] border border-white/5 shadow-2xl">
           {error && (
-            <div className="p-4 bg-red-500/10 border border-red-500/20 rounded-2xl text-red-500 text-sm font-bold text-center">
+            <div className="p-4 bg-red-500/10 border border-red-500/20 rounded-xl text-red-500 text-sm font-medium text-center">
               {error}
             </div>
           )}
 
           <div className="space-y-2">
-            <label className="text-[10px] font-black text-gray-600 uppercase tracking-widest ml-2">Secure Phone Entry</label>
+            <label className="text-[10px] font-black text-gray-600 uppercase tracking-widest ml-2">Phone Number</label>
             <div className="relative">
-              <Phone className="absolute left-6 top-1/2 -translate-y-1/2 text-cyan-500" size={20} />
+              <Phone className="absolute left-5 top-1/2 -translate-y-1/2 text-cyan-500" size={18} />
               <input
                 type="text"
-                placeholder="919876543210"
-                className="w-full bg-black border border-white/10 rounded-[1.5rem] py-5 pl-14 pr-6 text-white font-bold placeholder:text-gray-800 focus:border-cyan-500/50 outline-none transition-all"
+                placeholder="91xxxxxxxxxx"
+                className="w-full bg-black border border-white/10 rounded-xl py-4 pl-12 pr-6 text-white font-medium placeholder:text-gray-800 focus:border-cyan-500/50 outline-none transition-all"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 required
@@ -74,13 +74,13 @@ export default function Login({ onLogin }: LoginProps) {
           </div>
 
           <div className="space-y-2">
-            <label className="text-[10px] font-black text-gray-600 uppercase tracking-widest ml-2">Private Key Access</label>
+            <label className="text-[10px] font-black text-gray-600 uppercase tracking-widest ml-2">Password</label>
             <div className="relative">
-              <Lock className="absolute left-6 top-1/2 -translate-y-1/2 text-cyan-500" size={20} />
+              <Lock className="absolute left-5 top-1/2 -translate-y-1/2 text-cyan-500" size={18} />
               <input
                 type="password"
-                placeholder="••••••••••••"
-                className="w-full bg-black border border-white/10 rounded-[1.5rem] py-5 pl-14 pr-6 text-white font-bold placeholder:text-gray-800 focus:border-cyan-500/50 outline-none transition-all"
+                placeholder="Your Password"
+                className="w-full bg-black border border-white/10 rounded-xl py-4 pl-12 pr-6 text-white font-medium placeholder:text-gray-800 focus:border-cyan-500/50 outline-none transition-all"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
@@ -91,22 +91,22 @@ export default function Login({ onLogin }: LoginProps) {
           <button
             type="submit"
             disabled={isLoading}
-            className="glow-button w-full py-5 flex items-center justify-center gap-3 font-black uppercase tracking-widest disabled:opacity-50"
+            className="glow-button w-full py-4 flex items-center justify-center gap-2 font-black uppercase tracking-widest disabled:opacity-50 text-sm"
           >
             {isLoading ? (
-              <Loader2 className="animate-spin" size={24} />
+              <Loader2 className="animate-spin" size={20} />
             ) : (
               <>
-                Initiate Secure Box <ArrowRight size={24} />
+                Login <ArrowRight size={18} />
               </>
             )}
           </button>
         </form>
 
-        <p className="text-center mt-10 text-gray-500 font-bold uppercase tracking-widest text-[10px]">
-          System restricted.{' '}
+        <p className="text-center mt-8 text-gray-500 font-bold uppercase tracking-widest text-[10px]">
+          Don't have an account?{' '}
           <Link to="/signup" className="text-cyan-500 hover:text-cyan-400 ml-1">
-            Request Authorization
+            Sign Up
           </Link>
         </p>
       </motion.div>

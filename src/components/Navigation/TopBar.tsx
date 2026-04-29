@@ -10,15 +10,15 @@ export const TopBar = () => {
 
   const menuItems = [
     { label: 'Dashboard', path: '/' },
-    { label: 'WhatsApp Chat', path: '/chat' },
+    { label: 'Chat', path: '/chat' },
     { label: 'Bulk Messaging', path: '/bulk' },
-    { label: 'API Documentation', path: '/docs' },
-    { label: 'API Tester', path: '/tester' },
-    { label: 'Device Manager', path: '/devices' },
-    { label: 'Webhook Config', path: '/webhooks' },
-    { label: 'Get Support', path: '/support' },
-    { label: 'User History', path: '/history' },
-    { label: 'Profile Settings', path: '/profile' },
+    { label: 'Documentation', path: '/docs' },
+    { label: 'Test API', path: '/tester' },
+    { label: 'My Devices', path: '/devices' },
+    { label: 'Webhooks', path: '/webhooks' },
+    { label: 'Support', path: '/support' },
+    { label: 'History', path: '/history' },
+    { label: 'Profile', path: '/profile' },
   ];
 
   const handleLogout = () => {
@@ -44,9 +44,9 @@ export const TopBar = () => {
         </div>
 
         <div className="flex items-center gap-3">
-          <div className="hidden sm:flex items-center gap-2 px-3 py-1 bg-red-500/10 border border-red-500/20 rounded-full">
-            <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
-            <span className="text-[10px] font-mono text-red-400 font-bold uppercase tracking-tighter">KEY: ACTIVE</span>
+          <div className="hidden sm:flex items-center gap-2 px-3 py-1 bg-emerald-500/10 border border-emerald-500/20 rounded-full">
+            <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></div>
+            <span className="text-[10px] font-mono text-emerald-400 font-bold uppercase tracking-tighter">Status: Online</span>
           </div>
           <div className="w-10 h-10 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 border-2 border-white/10 flex items-center justify-center text-xs font-bold text-white shadow-lg shadow-cyan-500/20">
             {userName[0]}
@@ -74,7 +74,7 @@ export const TopBar = () => {
               <div className="flex items-start justify-between mb-12">
                 <div className="flex flex-col">
                   <span className="font-black text-3xl text-white tracking-tighter uppercase leading-none">Happy Own<br/><span className="text-cyan-500">Service</span></span>
-                  <span className="text-[10px] font-black uppercase tracking-[0.3em] text-gray-700 mt-2">Control Interface</span>
+                  <span className="text-[10px] font-black uppercase tracking-[0.3em] text-gray-700 mt-2">Personal Menu</span>
                 </div>
                 <button 
                   onClick={() => setIsOpen(false)}
@@ -104,9 +104,9 @@ export const TopBar = () => {
               <div className="mt-auto pt-8 border-t border-white/5 flex flex-col gap-6">
                 <button 
                   onClick={handleLogout}
-                  className="w-full text-center py-5 rounded-2xl bg-red-500/10 border border-red-500/20 text-red-500 font-black uppercase tracking-widest text-[10px] hover:bg-red-500 hover:text-white transition-all shadow-lg shadow-red-500/20"
+                  className="w-full text-center py-4 rounded-xl bg-red-500/10 border border-red-500/20 text-red-500 font-black uppercase tracking-widest text-[10px] hover:bg-red-500 hover:text-white transition-all shadow-lg shadow-red-500/20"
                 >
-                  Terminate Session
+                  Logout
                 </button>
                 <div className="flex items-center justify-center gap-2">
                   <div className="w-1 h-1 bg-gray-800 rounded-full" />
