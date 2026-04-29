@@ -8,6 +8,7 @@ import { useState, useEffect } from 'react';
 import Dashboard from './pages/Dashboard/Dashboard';
 import Login from './pages/Auth/Login';
 import Signup from './pages/Auth/Signup';
+import ForgotPassword from './pages/Auth/ForgotPassword';
 import Chat from './pages/Chat/Chat';
 import ApiDocs from './pages/Docs/ApiDocs';
 import ApiTester from './pages/Tester/ApiTester';
@@ -48,6 +49,7 @@ export default function App() {
         <Routes>
           <Route path="/login" element={<Login onLogin={() => setIsAuthenticated(true)} />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
           
           <Route path="/" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
           <Route path="/chat" element={<ProtectedRoute><Chat /></ProtectedRoute>} />

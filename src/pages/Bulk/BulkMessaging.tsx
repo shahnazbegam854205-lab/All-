@@ -70,14 +70,14 @@ export default function BulkMessaging() {
     <div className="space-y-8 pb-20">
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
         <div>
-          <h2 className="text-3xl font-black text-white tracking-widest uppercase">Happy Own<span className="text-cyan-500"> Service</span> Broadcast</h2>
-          <p className="text-gray-500 text-xs font-bold uppercase tracking-widest mt-1">Mass distribution control center.</p>
+          <h2 className="text-3xl font-black text-white tracking-widest uppercase">Bulk<span className="text-cyan-500"> Messages</span></h2>
+          <p className="text-gray-500 text-xs font-bold uppercase tracking-widest mt-1">Send messages to many people at once.</p>
         </div>
         <div className="flex bg-[#111] border border-white/5 p-1.5 rounded-2xl shadow-xl overflow-x-auto scroller-hide">
           {[
             { id: 'text', label: 'Plain Text', icon: FileText },
-            { id: 'image', label: 'Image Burst', icon: ImageIcon },
-            { id: 'document', label: 'Docs/PDF', icon: Send }
+            { id: 'image', label: 'Send Images', icon: ImageIcon },
+            { id: 'document', label: 'Send Files', icon: Send }
           ].map((m) => (
             <button 
               key={m.id}
@@ -99,11 +99,11 @@ export default function BulkMessaging() {
           <div className="bg-[#111] p-10 rounded-[3rem] border border-white/5 shadow-2xl space-y-10">
             <div className="grid md:grid-cols-2 gap-8">
               <div className="space-y-3">
-                <label className="text-[10px] font-black uppercase text-gray-600 tracking-[0.2em]">source node</label>
+                <label className="text-[10px] font-black uppercase text-gray-600 tracking-[0.2em]">Select Device</label>
                 <div className="relative">
                   <Smartphone className="absolute left-5 top-1/2 -translate-y-1/2 text-cyan-500" size={18} />
                   <select 
-                    className="w-full bg-black border border-white/10 rounded-2xl py-5 pl-14 pr-10 outline-none focus:border-cyan-500 appearance-none font-bold text-white transition-all shadow-inner"
+                    className="w-full bg-black border border-white/10 rounded-2xl py-5 pl-14 pr-10 outline-none focus:border-cyan-500 appearance-none font-bold text-white transition-all shadow-inner text-sm"
                     value={selectedDevice}
                     onChange={(e) => setSelectedDevice(e.target.value)}
                   >
@@ -118,9 +118,9 @@ export default function BulkMessaging() {
 
             <div className="space-y-3">
               <div className="flex justify-between items-center px-1">
-                <label className="text-[10px] font-black uppercase text-gray-600 tracking-[0.2em]">recipients payload</label>
+                <label className="text-[10px] font-black uppercase text-gray-600 tracking-[0.2em]">Phone Numbers</label>
                 <div className="flex items-center gap-2">
-                  <span className="text-[9px] font-black text-cyan-500/50 uppercase tracking-widest">EOL Limited</span>
+                  <span className="text-[9px] font-black text-cyan-500/50 uppercase tracking-widest">One per line</span>
                   <div className="w-1.5 h-1.5 bg-cyan-500/50 rounded-full animate-pulse" />
                 </div>
               </div>
@@ -134,10 +134,10 @@ export default function BulkMessaging() {
 
             {mode !== 'text' && (
               <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="space-y-3">
-                <label className="text-[10px] font-black uppercase text-gray-600 tracking-[0.2em]">Media Asset Resource (URL)</label>
+                <label className="text-[10px] font-black uppercase text-gray-600 tracking-[0.2em]">Media URL</label>
                 <input 
                   type="text" 
-                  placeholder="https://content.delivery/asset.jpg"
+                  placeholder="https://example.com/image.jpg"
                   className="w-full bg-black border border-white/10 rounded-2xl py-5 px-8 outline-none focus:border-cyan-500/50 text-sm text-white font-bold transition-all shadow-inner"
                   value={mediaUrl}
                   onChange={(e) => setMediaUrl(e.target.value)}
@@ -146,9 +146,9 @@ export default function BulkMessaging() {
             )}
 
             <div className="space-y-3">
-              <label className="text-[10px] font-black uppercase text-gray-600 tracking-[0.2em]">Transmission content</label>
+              <label className="text-[10px] font-black uppercase text-gray-600 tracking-[0.2em]">Message Content</label>
               <textarea 
-                placeholder="Initialize message sequence..."
+                placeholder="Type your message here..."
                 className="w-full bg-black border border-white/5 rounded-[2rem] p-8 h-40 outline-none focus:border-cyan-500/50 text-sm leading-relaxed custom-scrollbar resize-none text-white font-medium shadow-inner"
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
@@ -160,7 +160,7 @@ export default function BulkMessaging() {
               onClick={handleBulkSend}
               className="glow-button w-full py-6 text-sm font-black uppercase tracking-[0.3em]"
             >
-              {isLoading ? <Loader2 className="animate-spin mx-auto" /> : "Initiate Campaign Evolution"}
+              {isLoading ? <Loader2 className="animate-spin mx-auto text-black" size={24} /> : "Start Sending"}
             </button>
           </div>
         </div>
@@ -171,13 +171,13 @@ export default function BulkMessaging() {
               <AlertTriangle size={80} />
             </div>
             <h3 className="font-black text-xs uppercase tracking-widest text-cyan-500 mb-6 flex items-center gap-2">
-              <span className="w-1 h-4 bg-cyan-500" /> Protocol Constraints
+              <span className="w-1 h-4 bg-cyan-500" /> Important Tips
             </h3>
             <ul className="space-y-6">
               {[
-                { title: 'Volumetric Limit', desc: 'Avoid exceeding 500 nodes per cycle.' },
-                { title: 'Semantic Variation', desc: 'Use dynamic templates to bypass filters.' },
-                { title: 'Opt-Out Logic', desc: 'Always include termination commands.' }
+                { title: 'Sending Limit', desc: 'Avoid sending more than 500 messages at once.' },
+                { title: 'Message Variety', desc: 'Use different text templates to avoid being blocked.' },
+                { title: 'Safe Sending', desc: 'Space out your messages for better results.' }
               ].map((tip, idx) => (
                 <li key={idx} className="flex gap-4">
                   <div className="font-mono text-[10px] text-gray-700 font-black">0{idx + 1}</div>
@@ -194,7 +194,7 @@ export default function BulkMessaging() {
             <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="bg-emerald-500/10 border border-emerald-500/20 p-8 rounded-[2.5rem] shadow-2xl">
               <div className="flex items-center gap-3 mb-4">
                 <CheckCircle2 className="text-emerald-500" />
-                <h3 className="font-black uppercase text-xs tracking-widest text-emerald-400">Campaign Activated</h3>
+                <h3 className="font-black uppercase text-xs tracking-widest text-emerald-400">Campaign Started</h3>
               </div>
               <pre className="text-[10px] font-mono text-emerald-500/70 overflow-x-auto">
                 {JSON.stringify(result, null, 2)}

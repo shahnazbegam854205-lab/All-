@@ -122,7 +122,7 @@ export default function Chat() {
 
         if (isImage) {
           payload.imageUrl = base64; // API support check
-          payload.caption = `Transmission: ${file.name}`;
+          payload.caption = `File: ${file.name}`;
         } else {
           payload.documentUrl = base64; // API support check
           payload.filename = file.name;
@@ -211,7 +211,7 @@ export default function Chat() {
       )}>
         <div className="p-8 border-b border-white/5 space-y-6 bg-gradient-to-br from-[#111] to-transparent">
           <div className="flex items-center justify-between">
-            <h2 className="font-black text-2xl text-white tracking-tighter uppercase">CHATS<span className="text-cyan-500">.</span></h2>
+            <h2 className="font-black text-2xl text-white tracking-tighter uppercase">MESSAGES<span className="text-cyan-500">.</span></h2>
             <div className="flex gap-2">
               <select 
                 value={selectedDeviceId}
@@ -264,7 +264,7 @@ export default function Chat() {
                   </span>
                 </div>
                 <div className="flex items-center gap-1">
-                  <p className="text-xs text-gray-500 truncate leading-relaxed flex-1">{conv.lastMessage || 'No transmissions'}</p>
+                  <p className="text-xs text-gray-500 truncate leading-relaxed flex-1">{conv.lastMessage || 'No messages'}</p>
                 </div>
               </div>
             </button>
@@ -280,14 +280,14 @@ export default function Chat() {
         {!selectedDeviceId ? (
           <div className="flex flex-col items-center justify-center p-12 text-center opacity-40">
             <Smartphone size={60} className="text-gray-500 mb-6" />
-            <h3 className="text-2xl font-black text-white uppercase tracking-widest mb-2">No Active Node</h3>
-            <p className="text-xs text-gray-500 font-bold uppercase tracking-widest max-w-[200px]">Link a WhatsApp device to initiate transmission.</p>
+            <h3 className="text-2xl font-black text-white uppercase tracking-widest mb-2">No Device Connected</h3>
+            <p className="text-xs text-gray-500 font-bold uppercase tracking-widest max-w-[200px]">Link a WhatsApp device to start chatting.</p>
           </div>
         ) : !selectedConversation ? (
           <div className="flex flex-col items-center justify-center p-12 text-center opacity-40">
             <MessageSquare size={60} className="text-gray-500 mb-6" />
-            <h3 className="text-2xl font-black text-white uppercase tracking-widest mb-2">Secure Link Idle</h3>
-            <p className="text-xs text-gray-500 font-bold uppercase tracking-widest max-w-[200px]">Select a communication node to begin decryption.</p>
+            <h3 className="text-2xl font-black text-white uppercase tracking-widest mb-2">Select a chat</h3>
+            <p className="text-xs text-gray-500 font-bold uppercase tracking-widest max-w-[200px]">Choose a person to start messaging.</p>
           </div>
         ) : (
           <>
@@ -305,9 +305,9 @@ export default function Chat() {
                 </div>
                 <div>
                   <h3 className="font-black text-white text-xl tracking-tighter">{selectedConversation.name || selectedConversation.chatId.split('@')[0]}</h3>
-                  <div className="text-[10px] text-cyan-500 flex items-center gap-1.5 font-black uppercase tracking-[0.2em] mt-0.5">
-                    <div className="w-1.5 h-1.5 bg-cyan-500 rounded-full animate-pulse shadow-[0_0_10px_rgba(6,182,212,0.8)]" /> 
-                    Secure Link Active
+                  <div className="text-[10px] text-emerald-500 flex items-center gap-1.5 font-black uppercase tracking-[0.2em] mt-0.5">
+                    <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse shadow-[0_0_10px_rgba(16,185,129,0.8)]" /> 
+                    Online
                   </div>
                 </div>
               </div>
@@ -322,7 +322,7 @@ export default function Chat() {
               {isLoading && messages.length === 0 ? (
                 <div className="h-full flex items-center justify-center flex-col gap-4 opacity-20">
                   <Loader2 className="animate-spin text-cyan-500" size={40} />
-                  <span className="text-[10px] font-black uppercase tracking-widest">Decrypting Stream...</span>
+                  <span className="text-[10px] font-black uppercase tracking-widest">Loading messages...</span>
                 </div>
               ) : (
                 messages.map((msg, idx) => {
@@ -353,8 +353,8 @@ export default function Chat() {
                           <div className="flex items-center gap-3 p-3 bg-black/40 rounded-xl mb-4 border border-white/10">
                             <FileText className="text-cyan-500" />
                             <div className="flex-1 overflow-hidden">
-                              <p className="text-xs font-bold truncate">{msg.fileName || 'Archive-File.zip'}</p>
-                              <p className="text-[9px] text-gray-500 uppercase tracking-widest">Encrypted Binary</p>
+                              <p className="text-xs font-bold truncate">{msg.fileName || 'Attachment'}</p>
+                              <p className="text-[9px] text-gray-500 uppercase tracking-widest">File Attachment</p>
                             </div>
                             <button className="text-cyan-500 p-2 hover:bg-cyan-500/10 rounded-lg"><Send size={14} className="rotate-90" /></button>
                           </div>
@@ -397,7 +397,7 @@ export default function Chat() {
                     className="flex flex-col gap-1 p-4 bg-cyan-500/5 border-l-4 border-cyan-500 rounded-xl mb-4"
                   >
                     <div className="flex justify-between items-center">
-                      <span className="text-[10px] font-black uppercase tracking-widest text-cyan-500">Replying to Transmission</span>
+                      <span className="text-[10px] font-black uppercase tracking-widest text-cyan-500">Replying to</span>
                       <button onClick={() => setReplyTo(null)} className="text-gray-500 hover:text-white"><X size={14} /></button>
                     </div>
                     <p className="text-xs text-gray-400 truncate">{replyTo.body}</p>
@@ -457,7 +457,7 @@ export default function Chat() {
 
                 <input 
                   type="text" 
-                  placeholder="Initiate communication..." 
+                  placeholder="Type a message..." 
                   className="flex-1 bg-black border border-white/10 rounded-[1.8rem] py-5 px-8 outline-none focus:border-cyan-500/50 text-white placeholder:text-gray-800 font-bold shadow-inner"
                   value={newMessage}
                   onChange={(e) => setNewMessage(e.target.value)}

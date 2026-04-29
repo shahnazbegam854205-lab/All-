@@ -4,11 +4,11 @@ import { cn } from '../../lib/utils';
 
 export const BottomNav = () => {
   const navItems = [
-    { icon: LayoutDashboard, label: 'Dash', path: '/' },
+    { icon: LayoutDashboard, label: 'Home', path: '/' },
     { icon: MessageSquare, label: 'Chat', path: '/chat' },
-    { icon: Radio, label: 'Hooks', path: '/webhooks' },
-    { icon: HelpCircle, label: 'Help', path: '/support' },
-    { icon: User, label: 'Me', path: '/profile' },
+    { icon: Radio, label: 'Webhooks', path: '/webhooks' },
+    { icon: HelpCircle, label: 'Support', path: '/support' },
+    { icon: User, label: 'Account', path: '/profile' },
   ];
 
   return (

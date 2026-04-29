@@ -96,7 +96,7 @@ export default function Dashboard() {
           >
             Happy Own<span className="text-cyan-400"> Service</span> <span className="animate-wave inline-block">👋</span>
           </motion.h2>
-          <p className="text-gray-400 mb-8 max-w-md text-sm font-bold uppercase tracking-widest leading-relaxed">Welcome back, {userName}. Your dashboard is ready.</p>
+          <p className="text-gray-400 mb-8 max-w-md text-sm font-bold uppercase tracking-widest leading-relaxed">Welcome back, {userName}. How can we help you today?</p>
           
           <div className="flex flex-wrap gap-4">
             <Link to="/tester" className="glow-button flex items-center gap-3 py-3 px-6 text-sm">
@@ -132,7 +132,7 @@ export default function Dashboard() {
         <div className="flex items-center justify-between px-2">
           <h3 className="font-black text-[10px] uppercase tracking-[0.3em] text-gray-500 flex items-center gap-2">
             <Smartphone size={14} className="text-cyan-500" />
-            Connected Devices
+            My Devices
           </h3>
           <Link to="/devices" className="text-[10px] font-black uppercase tracking-widest text-cyan-500 hover:text-cyan-400">Manage</Link>
         </div>
@@ -171,7 +171,7 @@ export default function Dashboard() {
 
           {devices.length === 0 && (
             <div className="p-8 bg-[#111] border border-white/5 rounded-3xl text-center border-dashed">
-              <p className="text-[10px] font-black uppercase tracking-widest text-gray-700">No active devices</p>
+              <p className="text-[10px] font-black uppercase tracking-widest text-gray-700">No devices connected</p>
             </div>
           )}
         </div>
@@ -212,7 +212,7 @@ export default function Dashboard() {
 
           {activity.length === 0 && (
             <div className="p-10 bg-[#111] border border-white/5 rounded-3xl text-center">
-              <p className="text-[10px] font-black uppercase tracking-widest text-gray-700">No recent transmissions</p>
+              <p className="text-[10px] font-black uppercase tracking-widest text-gray-700">No recent activity</p>
             </div>
           )}
         </div>
@@ -222,15 +222,15 @@ export default function Dashboard() {
         <div className="flex items-center justify-between px-2">
           <h3 className="font-black text-[10px] uppercase tracking-[0.3em] text-gray-500 flex items-center gap-2">
             <ShieldCheck size={14} className="text-cyan-500" />
-            Infrastructure
+            Tools & Documentation
           </h3>
         </div>
         
         <div className="space-y-4 pb-10">
           {[
-            { label: 'Bulk Campaign', desc: 'Send mass messages easily', icon: TrendingUp, path: '/bulk', color: 'text-cyan-400' },
-            { label: 'Set Webhook', desc: 'Receive real-time updates', icon: Radio, path: '/webhooks', color: 'text-emerald-400' },
-            { label: 'Support', desc: 'Contact our specialists', icon: MessageCircle, path: '/support', color: 'text-yellow-400' },
+            { label: 'Bulk Messages', desc: 'Send mass messages easily', icon: TrendingUp, path: '/bulk', color: 'text-cyan-400' },
+            { label: 'Webhooks', desc: 'Receive real-time updates', icon: Radio, path: '/webhooks', color: 'text-emerald-400' },
+            { label: 'Get Help', desc: 'Contact our specialists', icon: MessageCircle, path: '/support', color: 'text-yellow-400' },
             { label: 'Documentation', desc: 'API usage and examples', icon: Globe, path: '/docs', color: 'text-blue-400' },
           ].map((item) => (
             <Link 

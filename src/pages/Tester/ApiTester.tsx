@@ -134,8 +134,8 @@ export default function ApiTester() {
     <div className="space-y-6 sm:space-y-8 pb-32">
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 px-2">
         <div>
-          <h2 className="text-2xl sm:text-3xl font-black text-white tracking-widest uppercase">API<span className="text-cyan-500">TESTER</span></h2>
-          <p className="text-gray-500 text-[10px] font-bold uppercase tracking-widest mt-1">Direct endpoint interrogation system.</p>
+          <h2 className="text-2xl sm:text-3xl font-black text-white tracking-widest uppercase">API<span className="text-cyan-500"> TEST</span></h2>
+          <p className="text-gray-500 text-[10px] font-bold uppercase tracking-widest mt-1">Test your messaging APIs here.</p>
         </div>
         <div className="flex gap-2 p-1.5 bg-[#111] border border-white/5 rounded-2xl overflow-x-auto custom-scrollbar-hidden">
           {testEndpoints.map((ep, idx) => (
@@ -157,15 +157,15 @@ export default function ApiTester() {
         <div className="space-y-6">
           <div className="bg-[#111] p-6 sm:p-10 rounded-[2.5rem] sm:rounded-[3rem] border border-white/5 shadow-2xl space-y-8">
             <div className="space-y-3 sm:px-2">
-              <label className="text-[10px] font-black uppercase text-gray-600 tracking-[0.2em]">active node</label>
+              <label className="text-[10px] font-black uppercase text-gray-600 tracking-[0.2em]">Selected Device</label>
               <div className="relative">
                 <Smartphone className="absolute left-5 top-1/2 -translate-y-1/2 text-cyan-500" size={18} />
                 <select 
-                  className="w-full bg-black border border-white/10 rounded-2xl py-5 pl-14 pr-10 outline-none focus:border-cyan-500 appearance-none font-bold text-white transition-all shadow-inner"
+                  className="w-full bg-black border border-white/10 rounded-2xl py-5 pl-14 pr-10 outline-none focus:border-cyan-500 appearance-none font-bold text-white transition-all shadow-inner text-sm"
                   value={selectedDevice}
                   onChange={(e) => setSelectedDevice(e.target.value)}
                 >
-                  <option value="">Select a node...</option>
+                  <option value="">Choose a device...</option>
                   {devices.map(d => (
                     <option key={d.deviceId} value={d.deviceId}>{d.name} ({d.phone})</option>
                   ))}
@@ -177,13 +177,13 @@ export default function ApiTester() {
             {isUploadable && (
               <div className="space-y-3 sm:px-2">
                 <div className="flex items-center justify-between">
-                  <label className="text-[10px] font-black uppercase text-gray-600 tracking-[0.2em]">Upload Asset (Self Upload)</label>
+                  <label className="text-[10px] font-black uppercase text-gray-600 tracking-[0.2em]">Upload File</label>
                   {selectedFile && (
                     <button 
                       onClick={() => setSelectedFile(null)}
                       className="text-[9px] font-black uppercase text-red-500 hover:text-red-400 flex items-center gap-1"
                     >
-                      <AlertCircle size={10} /> Clear File
+                      <AlertCircle size={10} /> Clear
                     </button>
                   )}
                 </div>
@@ -202,7 +202,7 @@ export default function ApiTester() {
                     )}
                   >
                     <span className="truncate pr-4">
-                      {selectedFile ? selectedFile.name : "Select local file for transmission..."}
+                      {selectedFile ? selectedFile.name : "Select a local file..."}
                     </span>
                     <Play size={14} className="text-cyan-500 rotate-90 shrink-0" />
                   </label>
@@ -212,7 +212,7 @@ export default function ApiTester() {
 
             <div className="space-y-3 sm:px-2">
               <div className="flex justify-between items-center px-1">
-                <label className="text-[10px] font-black uppercase text-gray-600 tracking-[0.2em]">Transmission Body</label>
+                <label className="text-[10px] font-black uppercase text-gray-600 tracking-[0.2em]">Message JSON</label>
                 <div className="flex items-center gap-3">
                   <button 
                     onClick={() => {
@@ -225,7 +225,7 @@ export default function ApiTester() {
                     }}
                     className="hidden sm:block text-[9px] font-black uppercase text-cyan-500 hover:text-cyan-400 font-mono"
                   >
-                    Auto-Format
+                    Format
                   </button>
                   <span className="text-[9px] font-black text-cyan-500/50 bg-cyan-500/5 px-2 py-1 rounded">JSON</span>
                 </div>
@@ -245,7 +245,7 @@ export default function ApiTester() {
               onClick={handleTest}
               className="glow-button w-full py-6 text-sm font-black uppercase tracking-[0.3em] disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {isLoading ? <Loader2 className="animate-spin mx-auto text-black" /> : "Initiate Request"}
+              {isLoading ? <Loader2 className="animate-spin mx-auto text-black" /> : "Test API"}
             </button>
           </div>
         </div>
@@ -254,10 +254,10 @@ export default function ApiTester() {
           <div className="flex items-center justify-between px-2">
             <h3 className="text-xs font-bold text-gray-400 uppercase tracking-widest flex items-center gap-2">
               <Terminal size={14} className="text-cyan-500" />
-              Response Output
+              Output Result
             </h3>
             <span className="px-3 py-1 bg-green-500/10 text-green-400 text-[10px] font-bold rounded-full border border-green-500/20 uppercase">
-              Railway Active
+              Server Active
             </span>
           </div>
 
@@ -270,7 +270,7 @@ export default function ApiTester() {
               ) : (
                 <div className="h-full flex flex-col items-center justify-center text-gray-800 space-y-4">
                   <Database size={48} className="opacity-10" />
-                  <p className="font-bold tracking-widest uppercase text-xs">Waiting for Execution...</p>
+                  <p className="font-bold tracking-widest uppercase text-xs">Waiting for test...</p>
                 </div>
               )}
             </div>

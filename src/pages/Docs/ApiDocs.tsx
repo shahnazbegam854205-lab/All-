@@ -228,9 +228,9 @@ export default function ApiDocs() {
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
         <div>
           <h2 className="text-4xl font-black text-white tracking-tighter uppercase">
-            Happy Own<span className="text-cyan-500"> Service</span> Docs
+            User<span className="text-cyan-500"> Guide</span> & API
           </h2>
-          <p className="text-gray-400 mt-2 font-black uppercase text-[10px] tracking-widest">Technical specification and interaction protocols.</p>
+          <p className="text-gray-400 mt-2 font-black uppercase text-[10px] tracking-widest">How to use and integrate our API.</p>
         </div>
         <div className="flex gap-2 p-2 bg-[#111] border border-white/5 rounded-[2rem] overflow-x-auto shadow-2xl">
           {categories.map((cat, idx) => (

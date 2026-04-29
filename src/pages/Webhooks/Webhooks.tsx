@@ -88,9 +88,9 @@ echo json_encode(['status' => 'received']);`;
             <div className="w-10 h-10 sm:w-12 sm:h-12 bg-cyan-500/10 rounded-xl sm:rounded-2xl flex items-center justify-center shrink-0">
               <Radio className="text-cyan-500" size={24} />
             </div>
-            Webhook<span className="text-cyan-500">Settings</span>
+            Webhook<span className="text-cyan-500"> Settings</span>
           </h2>
-          <p className="text-gray-500 text-[9px] sm:text-[10px] uppercase font-black tracking-widest mt-2">Manage your incoming message alerts</p>
+          <p className="text-gray-500 text-[9px] sm:text-[10px] uppercase font-black tracking-widest mt-2">Manage your message notifications</p>
         </div>
       </div>
 
@@ -161,7 +161,7 @@ echo json_encode(['status' => 'received']);`;
                   )}
                 >
                   {isSaving ? <Loader2 className="animate-spin" size={16} /> : (success ? <Check size={16} /> : <Save size={16} />)}
-                  {isSaving ? "Saving..." : (success ? "Saved OK" : "Save Settings")}
+                  {isSaving ? "Saving..." : (success ? "Saved" : "Save Settings")}
                 </button>
                 <button 
                   onClick={handleTest}
@@ -169,7 +169,7 @@ echo json_encode(['status' => 'received']);`;
                   className="flex-1 py-3.5 sm:py-4 bg-white/5 text-white font-black rounded-xl sm:rounded-2xl hover:bg-white/10 transition-all border border-white/10 uppercase tracking-widest text-[9px] disabled:opacity-30 flex items-center justify-center gap-2"
                 >
                   {isTesting ? <Loader2 className="animate-spin" size={14} /> : <Activity size={14} />}
-                  Test Webhook
+                  Test URL
                 </button>
               </div>
 

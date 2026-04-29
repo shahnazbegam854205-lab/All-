@@ -33,13 +33,13 @@ export default function Support() {
           animate={{ opacity: 1, scale: 1 }}
           className="inline-flex items-center gap-2 px-3 py-1 bg-cyan-500/10 border border-cyan-500/20 rounded-full text-cyan-500 text-[10px] font-black uppercase tracking-widest mb-4"
         >
-          <ShieldCheck size={12} /> 24/7 Priority Matrix
+          <ShieldCheck size={12} /> 24/7 Priority Support
         </motion.div>
         <h1 className="text-4xl sm:text-6xl font-black text-white tracking-tighter uppercase">
-          Get<span className="text-cyan-500"> Assistance</span>
+          Get<span className="text-cyan-500"> Help</span>
         </h1>
         <p className="text-gray-500 text-xs sm:text-sm max-w-xl mx-auto leading-relaxed">
-          Stuck with an integration? Our protocol specialists are standing by to help you deploy your bots and fix webhook failures.
+          Need help with your account or API? Contact us via the channels below.
         </p>
       </div>
 
@@ -67,7 +67,7 @@ export default function Support() {
             <p className="text-xs font-mono text-cyan-500/70">{channel.handle}</p>
             
             <div className="mt-8 flex items-center gap-2 text-white font-bold text-xs uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
-              Initiate Link <ExternalLink size={14} />
+              Open Link <ExternalLink size={14} />
             </div>
           </motion.a>
         ))}
@@ -77,8 +77,8 @@ export default function Support() {
       <div className="grid sm:grid-cols-3 gap-6">
         {[
           { icon: <Clock size={18} />, title: "30m Response", desc: "Average reply time" },
-          { icon: <Zap size={18} />, title: "Live Debug", desc: "Remote protocol check" },
-          { icon: <Globe size={18} />, title: "Global Sync", desc: "All regions supported" }
+          { icon: <Zap size={18} />, title: "Live Help", desc: "Real-time support" },
+          { icon: <Globe size={18} />, title: "Global Support", desc: "All countries supported" }
         ].map((item, i) => (
           <div key={i} className="bg-white/5 border border-white/5 p-6 rounded-[2rem] flex flex-col items-center text-center">
             <div className="text-cyan-500 mb-3">{item.icon}</div>
@@ -107,9 +107,9 @@ export default function Support() {
         <div className="space-y-4">
           {[
             "Have your numeric Account ID ready",
-            "Copy the specific Error Payload from your logs",
+            "Copy the specific Error from your logs",
             "Verify your server status in the Webhooks panel",
-            "Check if your device is currently Linked (Active)"
+            "Check if your device is Connected"
           ].map((text, i) => (
             <div key={i} className="flex items-center gap-4 p-4 bg-black/40 rounded-2xl border border-white/5">
               <div className="w-2 h-2 bg-cyan-500 rounded-full shadow-[0_0_10px_rgba(6,182,212,0.5)]" />

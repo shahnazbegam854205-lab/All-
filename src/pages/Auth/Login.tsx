@@ -74,7 +74,12 @@ export default function Login({ onLogin }: LoginProps) {
           </div>
 
           <div className="space-y-2">
-            <label className="text-[10px] font-black text-gray-600 uppercase tracking-widest ml-2">Password</label>
+            <div className="flex justify-between items-center ml-2">
+              <label className="text-[10px] font-black text-gray-600 uppercase tracking-widest">Password</label>
+              <Link to="/forgot-password" className="text-[9px] font-black text-cyan-500/50 hover:text-cyan-500 uppercase tracking-widest transition-colors">
+                Forgot Password?
+              </Link>
+            </div>
             <div className="relative">
               <Lock className="absolute left-5 top-1/2 -translate-y-1/2 text-cyan-500" size={18} />
               <input

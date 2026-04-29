@@ -117,7 +117,7 @@ export default function Devices() {
     <div className="space-y-6 pb-20">
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <h2 className="text-xl sm:text-3xl font-black text-white tracking-widest uppercase">
-          Service<span className="text-cyan-500"> Nodes</span>
+          My<span className="text-cyan-500"> Devices</span>
         </h2>
         <button 
           onClick={() => {
@@ -128,7 +128,7 @@ export default function Devices() {
           }}
           className="glow-button flex items-center gap-2 text-[10px] sm:text-sm py-3 px-6 w-full sm:w-auto justify-center"
         >
-          <Plus size={18} /> Add New Node
+          <Plus size={18} /> Add Device
         </button>
       </div>
 
@@ -140,9 +140,9 @@ export default function Devices() {
             <div className="w-16 h-16 bg-white/5 rounded-full flex items-center justify-center mx-auto mb-4">
               <Smartphone className="text-slate-700" size={32} />
             </div>
-            <h3 className="text-xl font-bold mb-2">No Active Nodes</h3>
-            <p className="text-slate-500 mb-6 text-sm">Deploy an API node to begin transmission protocols.</p>
-            <button onClick={() => setIsAdding(true)} className="glow-button px-8">Initialize Node</button>
+            <h3 className="text-xl font-bold mb-2">No Devices Added</h3>
+            <p className="text-slate-500 mb-6 text-sm">Connect a WhatsApp device to start sending messages.</p>
+            <button onClick={() => setIsAdding(true)} className="glow-button px-8">Connect Device</button>
           </div>
         ) : (
           devices.map((device) => (
@@ -240,9 +240,9 @@ export default function Devices() {
                 <Trash2 size={24} />
               </div>
 
-              <h4 className="text-xl font-black text-white uppercase tracking-tighter mb-2">Discard Node?</h4>
+              <h4 className="text-xl font-black text-white uppercase tracking-tighter mb-2">Remove Device?</h4>
               <p className="text-gray-400 text-[10px] leading-relaxed uppercase font-bold tracking-widest opacity-60 mb-8">
-                This will permanently dismantle this transmission node and terminate all active sessions. This action is irreversible.
+                This will permanently delete this device and logout from all active sessions. This action cannot be undone.
               </p>
 
               <div className="flex gap-4">
@@ -258,7 +258,7 @@ export default function Devices() {
                   className="flex-1 py-4 bg-red-500 text-white font-black rounded-2xl hover:bg-red-600 transition-all uppercase tracking-widest text-[10px] shadow-lg shadow-red-500/20 flex items-center justify-center gap-2"
                 >
                   {deletingId && <Loader2 size={12} className="animate-spin" />}
-                  {deletingId ? "Dismantling..." : "Dismantle"}
+                  {deletingId ? "Deleting..." : "Delete"}
                 </button>
               </div>
             </motion.div>
