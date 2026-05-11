@@ -214,7 +214,7 @@ export default function ApiDocs() {
   };
 
   const getCurl = (ep: ApiEndpoint) => {
-    let curl = `curl -X ${ep.method} "https://whatsapp-api-salution-production.up.railway.app${ep.path}" \\\n`;
+    let curl = `curl -X ${ep.method} "https://whatsapp-api-salution-production-9.up.railway.app${ep.path}" \\\n`;
     curl += `  -H "x-api-key: YOUR_API_KEY" \\\n`;
     curl += `  -H "Content-Type: application/json"`;
     if (ep.body) {
