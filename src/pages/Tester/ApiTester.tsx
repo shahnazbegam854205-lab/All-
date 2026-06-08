@@ -22,7 +22,7 @@ import {
 } from 'lucide-react';
 import { cn } from '../../lib/utils';
 
-const YOUR_API_URL = 'https://whatsapp-api-salution-production-9.up.railway.app';
+const YOUR_API_URL = 'https://whatsapp-api-salution-production.up.railway.app';
 
 export default function ApiTester() {
   const [devices, setDevices] = useState<Device[]>([]);
