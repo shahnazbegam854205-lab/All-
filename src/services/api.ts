@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const BASE_URL = 'https://whatsapp-api-salution-production-9.up.railway.app';
+export const BASE_URL = 'https://whatsapp-api-salution-production.up.railway.app';
 
 export const api = axios.create({
   baseURL: BASE_URL,
