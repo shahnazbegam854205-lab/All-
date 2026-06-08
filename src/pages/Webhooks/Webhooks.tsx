@@ -161,8 +161,8 @@ app.post('/webhook', async (req, res) => {
     }
     
     // Send reply back via API
-    if (reply) {
-        await fetch('https://whatsapp-api-salution-production-9.up.railway.app/api/send', {
+    if (reply) 
+        await fetch('https://whatsapp-api-salution-production.up.railway.app/api/send', {
             method: 'POST',
             headers: {
                 'x-api-key': 'YOUR_API_KEY_HERE',
@@ -190,7 +190,7 @@ import json
 
 app = Flask(__name__)
 
-YOUR_API_URL = "https://whatsapp-api-salution-production-9.up.railway.app/api/send"
+YOUR_API_URL = "https://whatsapp-api-salution-production.up.railway.app/api/send"
 API_KEY = "YOUR_API_KEY_HERE"
 
 @app.route('/webhook', methods=['POST'])
@@ -251,7 +251,7 @@ if (stripos($body, 'hi') !== false) {
 
 // Send reply back
 if ($reply) {
-    $apiUrl = "https://whatsapp-api-salution-production-9.up.railway.app/api/send";
+    $apiUrl = "https://whatsapp-api-salution-production.up.railway.app/api/send";
     $apiKey = "YOUR_API_KEY_HERE";
     
     $payload = json_encode([
