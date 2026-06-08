@@ -32,7 +32,7 @@ export default function Webhooks() {
   const [events, setEvents] = useState(['message']);
   const [apiKey, setApiKey] = useState('');
 
-  const YOUR_API_URL = 'https://whatsapp-api-salution-production-9.up.railway.app';
+  const YOUR_API_URL = 'https://whatsapp-api-salution-production.up.railway.app';
 
   // Load webhook status on mount
   useEffect(() => {
